@@ -39,7 +39,7 @@ DATABASES = {
 Далее в консоли переходим в папку /djangoblog и выполняем миграцию
 
 ```bash
-python manage.py makemigration
+python manage.py makemigrations
 
 python manage.py migrate
 ```
