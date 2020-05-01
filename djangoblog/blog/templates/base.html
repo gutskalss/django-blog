@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% block title %}Мой блог{% endblock %}</title>
+</head>
+<body>
+  <nav class="row white">
+    <div class="col s12 navbar">
+      <a href="{% url 'home' %}"><img class="logo" src="/media/logo.svg" alt="logo"></a>
+      <ul class="right">
+        <li>
+          <a href="{% url 'add_post' %}">Добавить пост</a>
+        </li>
+        <li>
+          <a href="#">
+            <img class="email" src="/media/email.svg" alt="email">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img class="user-logo" src="/media/user-logo.jpg" alt="user-logo">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img class="logout" src="/media/logout.svg" alt="logout">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  {% block content %}
+  {% endblock %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+
+  
+    {% for post in object_list|slice:":10" %}
+      {% if forloop.counter == 1 %}
+        <div class="container">
+          <div class="row">
+            <div class="col s12">
+              <div class="primary-post">
+                <img class="col s12 l6 right" src="{{ post.image.url }}" alt="{{ post.title }}" width="200"></br>
+                <div class="col s12 l6 left">
+                  <span class="new-label">NEW</span>
+                  <div class="post-infobar">
+                    <span class="infobar-item post-likes">25</span>
+                    <span class="infobar-item post-comments">12</span>
+                    <span class="infobar-item post-views">117</span>
+                  </div>
+                  <h1>{{ post.title }}</h1>
+                  <div class="post-body">{{ post.body }}</div>
+                  <a class="blue-btn" href="#">ЧИТАТЬ</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="container">
+          <div class="row">
+            <div class="col s12">
+              <div class="posts-head">
+                <h2>Другие статьи</h2>
+                <a href="#" class="filter"><img src="/media/filter.svg" alt="filter"></a>
+              </div>
+            </div>
+      {% else %}
+            <div class="col s12 m6 l4">
+              <div class="post">
+                <img class="post-image" src="{{post.image.url}}" alt="{{ post.title }}">
+                <div class="post-title">{{ post.title }}</div>
+                <span class="post-date">{{ post.created_at }}</span>
+                <div class="post-infobar">
+                  <span class="infobar-item post-likes">25</span>
+                  <span class="infobar-item post-comments">12</span>
+                  <span class="infobar-item post-views">117</span>
+                </div>
+              </div>
+            </div>
+      {% endif %}
+    {% endfor %}
+          </div>
+        </div>
+{% endblock %}
